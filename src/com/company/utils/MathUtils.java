@@ -39,6 +39,21 @@ public class MathUtils {
     }
 
     /**
+     * ищет растояние Хеминга между двумя векторами
+     */
+    public static int findHemmingDistance(int[] a, int[] b) {
+        int hemmingDistance = 0;
+
+        for (int i = 0; i < a.length; i++) {
+            hemmingDistance += a[i] - b[i];
+        }
+
+        if (hemmingDistance < 0) return hemmingDistance * -1;
+
+        return hemmingDistance;
+    }
+
+    /**
      * переворачивает вектор в матрицу размерностью [1][n]
      */
     public static int[][] revertVector(int[] vector) {

@@ -36,7 +36,4 @@ public class Input {
 
         return MathUtils.multipleMatrix(newShape, newDescription);
     }
-
-
-
 }

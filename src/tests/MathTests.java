@@ -2,12 +2,14 @@ package tests;
 
 import com.company.utils.MathUtils;
 
+import static com.company.utils.IoUtils.showMatrix;
+
 
 public class MathTests {
 
     public static void main(String[] args) {
         // test for sum - done
-       /* testSumMatrix();
+        testSumMatrix();
 
         // test for revert - done
         testRevertVector();
@@ -19,16 +21,21 @@ public class MathTests {
         testInitializeVector();
 
         //test for initialize matrix - done
-        testInitializeMatrix();*/
+        testInitializeMatrix();
 
         //test for revert matrix to vector
         testMatrixToVector();
+
+        //test for hemming distance
+        testHemmingDistanceCalculating();
     }
 
     /**
      * check
      */
     private static void testSumMatrix() {
+        System.out.println("------------  Test sum  --------------");
+
         int a[][] = {
                 {-1, -1, 1, -1},
                 {1, 1, -1, 1},
@@ -65,6 +72,8 @@ public class MathTests {
         System.out.println("========== expected matrix ============");
 
         showMatrix(expectedResult);
+
+        System.out.println("------------  -----------  --------------");
     }
 
 
@@ -157,15 +166,17 @@ public class MathTests {
         showMatrix(new int[][]{result});
     }
 
+    private static void testHemmingDistanceCalculating() {
+        int[] a = {2, 2, 2, 2};
 
-    private static void showMatrix(int[][] a) {
-        for (int i = 0; i < a.length; i++) {
+        int[] b = {1, 1, 1, 1};
 
-            for (int j = 0; j < a[0].length; j++) {
-                System.out.print(" " + a[i][j] + " ");
-            }
+        int resultA = MathUtils.findHemmingDistance(a, b);
 
-            System.out.println("");
-        }
+        int resultB = MathUtils.findHemmingDistance(b, a);
+
+        System.out.println("Hemming distance with a and b is " + resultA);
+
+        System.out.println("Hemming distance with b and a is " + resultB);
     }
 }
